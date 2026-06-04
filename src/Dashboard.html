@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>داشبورد استراتژیک گزارش عملکرد</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+        body { font-family: 'Vazirmatn', sans-serif; background-color: #121212; color: #fff; }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <header class="mb-10 text-center">
+        <h1 class="text-4xl font-bold text-amber-500 mb-2">داشبورد استراتژیک گزارش عملکرد ماهانه</h1>
+        <p class="text-slate-400">تحلیل ساختار سیستم، نشانههای رفتاری و ماتریس لید | پروژه پرسونال برند جناب امیرحسین طاهری</p>
+    </header>
+
+    <main class="max-w-6xl mx-auto space-y-8">
+        <!-- Infrastructure -->
+        <section class="bg-[#1a1a1a] p-6 rounded-lg border border-amber-900/50">
+            <h2 class="text-2xl font-bold mb-4 text-amber-600">۱. اتاق فرمانِ زیرساخت</h2>
+            <ul class="space-y-2 text-sm text-slate-300">
+                <li>✅ بازطراحی کامل بایو (Bio)، تحقیق تخصصی کلمات کلیدی، تعیین دقیق سبک محتوایی، ساختار سفر مشتری.</li>
+                <li>✅ استخراج چکلیستهای تخصصی «بایدها و نبایدهای پروفایل» و «ضبط ویدیو».</li>
+                <li>✅ لیست هشتگها، تقویم محتوایی خرداد، لیست و هایلایتها با سناریو.</li>
+                <li>✅ نگارش ۱۵ سناریوی تخصصی، نظارت بر ادیت پستها، ساخت استوریها و سناریو.</li>
+                <li>✅ لاگین در اکانتها، پاکسازی فالوورهای فیک، ادیت تصویر پروفایل و راهاندازی لینکدین.</li>
+                <li>✅ ترین کردن هوش مصنوعی، طراحی کاورها، پاسخگویی و جلسات هفتگی.</li>
+            </ul>
+        </section>
+
+        <!-- Video & KPIs -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="aspect-video bg-black rounded-lg overflow-hidden border border-slate-700">
+                <iframe class="w-full h-full" src="https://drive.google.com/file/d/1B3nEBMWnzpkpKGiVAPLc8hCJoNIRhDyL/preview" allowfullscreen></iframe>
+            </div>
+            <div class="space-y-4">
+                <h3 class="text-xl font-bold text-slate-100">وضعیت تعهدات</h3>
+                <div class="space-y-2">
+                    <p class="text-sm">پست: ۳ از ۵ آپلود شده</p>
+                    <div class="w-full bg-slate-800 h-2 rounded"><div class="bg-amber-600 h-2 rounded" style="width: 60%"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Section (Placeholders for brevity in HTML) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <canvas id="performanceChart"></canvas>
+            <canvas id="geographyChart"></canvas>
+        </div>
+    </main>
+
+    <script>
+        // Chart.js init logic
+        const ctxP = document.getElementById('performanceChart').getContext('2d');
+        new Chart(ctxP, {
+            type: 'bar',
+            data: { labels: ['راز الشایع'], datasets: [{ label: 'Engagement', data: [55], backgroundColor: '#D4AF37' }] },
+            options: { plugins: { legend: { labels: { color: '#FFF' } } } }
+        });
+    </script>
+</body>
+</html>
