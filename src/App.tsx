@@ -71,7 +71,7 @@ export default function App() {
     }],
   };
 
-  if (view === 'dashboard') return <ExecutiveDashboard />;
+  if (view === 'dashboard') return <ExecutiveDashboard onBack={() => setView('home')} />;
   if (view === 'hours') return (
     <WorkingHoursReport 
       dailyLogs={dailyLogs} 

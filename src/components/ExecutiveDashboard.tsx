@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend } from 'chart.js';
 import { Bar, Pie } from 'react-chartjs-2';
-
+import { ArrowLeft } from 'lucide-react';
+// Removed unused imports
 ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend);
 
-const ExecutiveDashboard = () => {
+const ExecutiveDashboard = ({ onBack }: { onBack: () => void }) => {
+    const dashboardRef = useRef<HTMLDivElement>(null);
+
+// Export function removed
     const barData = {
         labels: ['راز الشایع', 'دیگر گروگان کارمندت نباش'],
         datasets: [{
@@ -27,9 +31,15 @@ const ExecutiveDashboard = () => {
     };
 
     return (
-        <div className="bg-[#121212] text-slate-100 min-h-screen p-8" dir="rtl">
-            <header className="mb-10 text-center">
+        <div className="bg-[#121212] text-slate-100 min-h-screen p-8" dir="rtl" ref={dashboardRef}>
+            <header className="mb-10 text-center relative">
                 <h1 className="text-4xl font-bold text-amber-500 mb-2">داشبورد استراتژیک گزارش عملکرد ماهانه</h1>
+                <button 
+                  onClick={onBack}
+                  className="fixed bottom-6 right-6 p-4 bg-amber-600 rounded-full text-white shadow-lg hover:bg-amber-700 z-50 flex items-center gap-2"
+                >
+                  <ArrowLeft size={24} /> بازگشت
+                </button>
             </header>
 
             <div className="max-w-6xl mx-auto space-y-8">
@@ -39,7 +49,7 @@ const ExecutiveDashboard = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-slate-300">
                         <div className="bg-[#121212] p-4 rounded border-r-2 border-amber-600">
                             <h3 className="font-bold text-amber-400 mb-2">کارهای مهم این ماه</h3>
-                            <p>تمرکز روی چیدمان و آماده کردن کارهای پایه، بایو، مسیر حرکت مخاطب، ۱۵ سناریو، پاکسازی فالوورهای فیک و استارت لینکدین.</p>
+                            <p>تمرکز روی چیدمان و آماده کردن کارهای پایه، بایو، مسیر حرکت مخاطب، ۱۵ سناریو، پاکسازی فالووینگها و استارت لینکدین.</p>
                         </div>
                         <div className="bg-[#121212] p-4 rounded border-r-2 border-red-600">
                             <h3 className="font-bold text-red-400 mb-2">مشکلات و گیرها</h3>
@@ -64,15 +74,18 @@ const ExecutiveDashboard = () => {
                         <li>✅ استخراج چکلیستهای تخصصی «بایدها و نبایدهای پروفایل» و «ضبط ویدیو».</li>
                         <li>✅ لیست هشتگها، تقویم محتوایی خرداد، طراحی لیست و هایلایتها با سناریو.</li>
                         <li>✅ نگارش ۱۵ سناریوی تخصصی، نظارت بر ادیت پستها، ساخت استوریها و سناریو.</li>
-                        <li>✅ لاگین اکانتها، پاکسازی فالوورهای فیک، ادیت تصاویر پروفایل و راهاندازی لینکدین.</li>
+                        <li>✅ لاگین اکانتها، پاکسازی فالووینگها، ادیت تصاویر پروفایل و راهاندازی لینکدین.</li>
                         <li>✅ ترین کردن هوش مصنوعی، طراحی کاورها، پاسخگویی و جلسات هفتگی.</li>
                     </ul>
                 </section>
 
                 {/* Video & KPI */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="aspect-video bg-black rounded-lg overflow-hidden border border-slate-700">
-                        <iframe className="w-full h-full" src="https://drive.google.com/file/d/1B3nEBMWnzpkpKGiVAPLc8hCJoNIRhDyL/preview" allowFullScreen></iframe>
+                    <div className="aspect-video w-full bg-black rounded-lg overflow-hidden border border-slate-700 relative">
+                        <div className="absolute top-2 left-2 z-10 bg-black/70 text-white text-[10px] p-2 rounded max-w-[80%]">
+                            اگر ویدیو را به درستی نمی‌توانید مشاهده کنید، روی دکمه pop out ضربه بزنید.
+                        </div>
+                        <iframe className="w-full h-full border-0" src="https://drive.google.com/file/d/1B3nEBMWnzpkpKGiVAPLc8hCJoNIRhDyL/preview" allowFullScreen></iframe>
                     </div>
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold text-slate-100 mb-4">وضعیت تعهدات</h3>
