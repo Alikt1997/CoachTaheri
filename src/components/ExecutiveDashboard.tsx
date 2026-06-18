@@ -1,25 +1,12 @@
 import React, { useRef } from 'react';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend } from 'chart.js';
-import { Bar, Pie } from 'react-chartjs-2';
-import CplCalculator from './CplCalculator';
+import { Pie } from 'react-chartjs-2';
 // Removed unused imports
 ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend);
 
 const ExecutiveDashboard = ({ onBack }: { onBack: () => void }) => {
     const dashboardRef = useRef<HTMLDivElement>(null);
 
-    const barData = {
-        labels: ['راز الشایع', 'دیگر گروگان کارمندت نباش'],
-        datasets: [{
-            label: 'انگیجمنت',
-            data: [55, 10], 
-            backgroundColor: '#D4AF37'
-        }, {
-            label: 'لید',
-            data: [8, 2],
-            backgroundColor: '#C5A880'
-        }]
-    };
 
     const geoData = {
         labels: ['ایران', 'امارات'],
@@ -72,17 +59,10 @@ const ExecutiveDashboard = ({ onBack }: { onBack: () => void }) => {
                     </div>
                 </section>
 
-                {/* Video & KPI */}
-                <div className="w-full">
-                    <CplCalculator />
-                </div>
 
                 {/* Charts */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                     <div className="bg-[#1a1a1a] p-6 rounded-lg border border-slate-800">
-                        <h3 className="text-lg font-bold mb-4">محتوای پربازده (انگیجمنت و لید)</h3>
-                        <Bar data={barData}/>
-                    </div>
+
                     <div className="bg-[#1a1a1a] p-6 rounded-lg border border-slate-800">
                         <h3 className="text-lg font-bold mb-4">جغرافیای بازدید</h3>
                         <Pie data={geoData}/>
